@@ -1,0 +1,17 @@
+apiVersion: gateway.kgateway.dev/v1alpha1
+kind: BackendConfigPolicy
+metadata:
+  name: good-healthcheck
+  namespace: demo
+spec:
+  targetRefs:
+    - group: ""
+      kind: Service
+      name: httpbin
+  healthCheck:
+    timeout: 2s
+    interval: 5s
+    healthyThreshold: 2
+    unhealthyThreshold: 3
+    http:
+      path: /status/200

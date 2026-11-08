@@ -1,0 +1,11 @@
+apiVersion: gateway.kgateway.dev/v1alpha1
+kind: Backend
+metadata:
+  name: bad-static-backend
+  namespace: demo
+spec:
+  type: Static
+  static:
+    hosts:
+      - host: example.com
+        port: 70000
